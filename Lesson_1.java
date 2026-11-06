@@ -1,21 +1,7 @@
-public class Lesson_1 {
 
-    public static void main(String[] args) {
-        printThreeWords();
-        checkSumSign();
-        printColor();
-        compareNumbers();
-        checkSumInRange();
-        printPositiveOrNegative();
-        isNumberNegative();
-        printString();
-        isLeapYear();
-        replaceZerosAndOnes();
-        fillArray();
-        multiplyLessThanSix();
-        createMatrix();
-        createArray();
-    }
+import java.util.Arrays;
+
+public class Lesson_1 {
 
     public static void printThreeWords() {
         System.out.println("Orange");
@@ -26,7 +12,9 @@ public class Lesson_1 {
     public static void checkSumSign() {
         int a = 10;
         int b = -5;
+
         int sum = a + b;
+
         if (sum >= 0) {
             System.out.println("Сумма положительная");
         } else {
@@ -36,9 +24,10 @@ public class Lesson_1 {
 
     public static void printColor() {
         int value = 50;
+
         if (value <= 0) {
             System.out.println("Красный");
-        } else if (value > 0 && value <= 100) {
+        } else if (value <= 100) {
             System.out.println("Желтый");
         } else {
             System.out.println("Зеленый");
@@ -46,8 +35,9 @@ public class Lesson_1 {
     }
 
     public static void compareNumbers() {
-        int a = 5;
-        int b = 10;
+        int a = 10;
+        int b = 20;
+
         if (a >= b) {
             System.out.println("a >= b");
         } else {
@@ -55,98 +45,111 @@ public class Lesson_1 {
         }
     }
 
-    public static void checkSumInRange() {
-        int a = 15;
-        int b = 5;
+    public static boolean checkSum(int a, int b) {
         int sum = a + b;
-        if (sum >= 10 && sum <= 20) {
-            System.out.println(true);
+        return sum >= 10 && sum <= 20;
+    }
+
+    public static void checkNumber(int number) {
+        if (number >= 0) {
+            System.out.println("Число положительное");
         } else {
-            System.out.println(false);
+            System.out.println("Число отрицательное");
         }
     }
 
-    public static void printPositiveOrNegative() {
-        int number = -5;
-        if (number < 0) {
-            System.out.println("Отрицательное число");
-        } else {
-            System.out.println("Положительное число");
-        }
+    public static boolean isNegative(int number) {
+        return number < 0;
     }
 
-    public static void isNumberNegative() {
-        int number = -5;
-        if (number < 0) {
-            System.out.println(true);
-        } else {
-            System.out.println(false);
-        }
-    }
-
-    public static void printString() {
-        String text = "Привет";
-        int count = 3;
+    public static void printString(String text, int count) {
         for (int i = 0; i < count; i++) {
             System.out.println(text);
         }
     }
 
-    public static void isLeapYear() {
-        int year = 2024;
-        if (year % 4 == 0 && year % 100 != 0) {
-            System.out.println(true);
-        } else if (year % 400 == 0) {
-            System.out.println(true);
+    public static boolean isLeapYear(int year) {
+        if (year % 400 == 0) {
+            return true;
+        } else if (year % 100 == 0) {
+            return false;
         } else {
-            System.out.println(false);
+            return year % 4 == 0;
         }
     }
 
-    public static void replaceZerosAndOnes() {
-        int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == 0) {
-                arr[i] = 1;
+    public static void changeArray() {
+        int[] array = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == 0) {
+                array[i] = 1;
             } else {
-                arr[i] = 0;
+                array[i] = 0;
             }
         }
+
+        System.out.println(Arrays.toString(array));
     }
 
     public static void fillArray() {
-        int[] arr = new int[100];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = i + 1;
+        int[] array = new int[100];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = i + 1;
         }
+
+        System.out.println(Arrays.toString(array));
     }
 
-    public static void multiplyLessThanSix() {
-        int[] arr = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < 6) {
-                arr[i] = arr[i] * 2;
+    public static void multiplyArray() {
+        int[] array = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < 6) {
+                array[i] = array[i] * 2;
             }
         }
+
+        System.out.println(Arrays.toString(array));
     }
 
-    public static void createMatrix() {
-        int[][] matrix = new int[5][5];
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                if (i == j) {
-                    matrix[i][j] = 1;
-                }
-            }
+    public static void fillDiagonal() {
+        int[][] array = new int[5][5];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i][i] = 1;
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(Arrays.toString(array[i]));
         }
     }
 
-    public static void createArray() {
-        int len = 5;
-        int initialValue = 10;
-        int[] arr = new int[len];
-        for (int i = 0; i < len; i++) {
-            arr[i] = initialValue;
+    public static int[] createArray(int len, int initialValue) {
+        int[] array = new int[len];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = initialValue;
         }
+
+        return array;
+    }
+
+    public static void main(String[] args) {
+        printThreeWords();
+        checkSumSign();
+        printColor();
+        compareNumbers();
+        System.out.println(checkSum(5, 10));
+        checkNumber(-5);
+        System.out.println(isNegative(-10));
+        printString("Привет", 3);
+        System.out.println(isLeapYear(2024));
+        changeArray();
+        fillArray();
+        multiplyArray();
+        fillDiagonal();
+        System.out.println(Arrays.toString(createArray(5, 7)));
     }
 }
