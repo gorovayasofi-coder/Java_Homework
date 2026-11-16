@@ -1,23 +1,22 @@
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.testng.Assert.*;
 
 public class FactorialTest {
 
     @Test
     public void testFactorial() {
-        assertEquals(120, Factorial.calculate(5));
+        assertEquals(Factorial.calculate(5), 120);
     }
 
     @Test
     public void testFactorialZero() {
-        assertEquals(1, Factorial.calculate(0));
+        assertEquals(Factorial.calculate(0), 1);
     }
 
-    @Test
+    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testFactorialNegativeNumber() {
-        assertThrows(IllegalArgumentException.class,
-                () -> Factorial.calculate(-5));
+        Factorial.calculate(-5);
     }
 }

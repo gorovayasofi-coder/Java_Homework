@@ -1,29 +1,27 @@
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.testng.Assert.*;
 
 public class TriangleTest {
 
     @Test
     public void testCalculateArea() {
-        assertEquals(24.0, Triangle.calculateArea(8, 6));
+        assertEquals(Triangle.calculateArea(8, 6), 24.0);
     }
 
     @Test
     public void testCalculateAreaWithDifferentValues() {
-        assertEquals(15.0, Triangle.calculateArea(5, 6));
+        assertEquals(Triangle.calculateArea(5, 6), 15.0);
     }
 
-    @Test
+    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testCalculateAreaWithZero() {
-        assertThrows(IllegalArgumentException.class,
-                () -> Triangle.calculateArea(0, 6));
+        Triangle.calculateArea(0, 6);
     }
 
-    @Test
+    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testCalculateAreaWithNegativeValue() {
-        assertThrows(IllegalArgumentException.class,
-                () -> Triangle.calculateArea(5, -6));
+        Triangle.calculateArea(5, -6);
     }
 }

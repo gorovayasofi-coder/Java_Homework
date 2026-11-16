@@ -1,22 +1,22 @@
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.testng.Assert.*;
 
 public class NumberComparatorTest {
 
     @Test
     public void testFirstNumberIsGreater() {
-        assertEquals(1, NumberComparator.compare(10, 5));
+        assertEquals(NumberComparator.compare(10, 5), 1);
     }
 
     @Test
     public void testFirstNumberIsLess() {
-        assertEquals(-1, NumberComparator.compare(5, 10));
+        assertEquals(NumberComparator.compare(5, 10), -1);
     }
 
     @Test
     public void testNumbersAreEqual() {
-        assertEquals(0, NumberComparator.compare(5, 5));
+        assertEquals(NumberComparator.compare(5, 5), 0);
     }
 }

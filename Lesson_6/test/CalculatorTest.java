@@ -1,33 +1,32 @@
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.testng.Assert.*;
 
 public class CalculatorTest {
 
     @Test
     public void testAdd() {
-        assertEquals(10, Calculator.add(5, 5));
+        assertEquals(Calculator.add(5, 5), 10);
     }
 
     @Test
     public void testSubtract() {
-        assertEquals(5, Calculator.subtract(10, 5));
+        assertEquals(Calculator.subtract(10, 5), 5);
     }
 
     @Test
     public void testMultiply() {
-        assertEquals(25, Calculator.multiply(5, 5));
+        assertEquals(Calculator.multiply(5, 5), 25);
     }
 
     @Test
     public void testDivide() {
-        assertEquals(2.0, Calculator.divide(10, 5));
+        assertEquals(Calculator.divide(10, 5), 2.0);
     }
 
-    @Test
+    @Test(expectedExceptions = ArithmeticException.class)
     public void testDivideByZero() {
-        assertThrows(ArithmeticException.class,
-                () -> Calculator.divide(10, 0));
+        Calculator.divide(10, 0);
     }
 }
